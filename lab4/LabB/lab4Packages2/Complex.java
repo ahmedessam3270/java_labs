@@ -1,13 +1,10 @@
 package lab4Packages2;
 
-package MyPackage;
-
-public class Complex<T extends Double> {
+public class Complex<T extends Number> {
     private T real;
     private T img;
 
-    public Complex(T real, T img)
-    {
+    public Complex(T real, T img) {
         this.real = real;
         this.img = img;
     }
@@ -28,31 +25,29 @@ public class Complex<T extends Double> {
         return real;
     }
 
-    public void display()
-    {
-        if ((Double)this.real == 0 && (Double)this.img == 0)
-        {
+    public void display() {
+        if (this.real.doubleValue() == 0 && this.img.doubleValue() == 0) {
             System.out.println("0");
             return;
         }
 
-        if ((Double)this.real != 0)
+        if (this.real.doubleValue() != 0)
             System.out.print(this.real);
-        if ((Double)this.img > 0)
+        if (this.img.doubleValue() > 0)
             System.out.println("+" + this.img + "j");
-        else if ((Double)this.img < 0)
+        else if (this.img.doubleValue() < 0)
             System.out.println(this.img + "j");
     }
 
-    public Complex<T> addition(Complex<T> other) {
-        Double newReal = this.real + other.real;
-        Double newImg = this.img + other.img;
-        return new Complex<>((T) newImg, (T) newReal);
+    public Complex<?> addition(Complex<?> other) {
+        double newReal = this.real.doubleValue() + other.real.doubleValue();
+        double newImg = this.img.doubleValue() + other.img.doubleValue();
+        return new Complex<Double>(newReal, newImg);
     }
 
-    public Complex<T> subtract(Complex<T> other) {
-        Double newReal = this.real - other.real;
-        Double newImg = this.img - other.img;
-        return new Complex<>((T) newImg, (T) newReal);
+    public Complex<?> subtract(Complex<?> other) {
+        double newReal = this.real.doubleValue() - other.real.doubleValue();
+        double newImg = this.img.doubleValue() - other.img.doubleValue();
+        return new Complex<Double>(newReal, newImg);
     }
 }
