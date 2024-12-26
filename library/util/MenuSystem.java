@@ -23,6 +23,8 @@ public class MenuSystem {
         System.out.println("2. Add Magazine");
         System.out.println("3. Display All Items");
         System.out.println("4. Remove Item");
+        System.out.println("5. Borrow Item");
+        System.out.println("6. Return Item");
         System.out.println("0. Back to Main Menu");
         System.out.print("Enter your choice: ");
     }

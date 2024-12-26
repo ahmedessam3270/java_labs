@@ -73,6 +73,12 @@ public class LibraryManagementSystem {
                     case 4:
                         removeItem();
                         break;
+                        case 5:
+                        borrowItem();
+                        break;
+                    case 6:
+                        returnItem();
+                        break;
                     case 0:
                         managing = false;
                         break;
@@ -178,4 +184,38 @@ public class LibraryManagementSystem {
         clientManager.removeClient(id);
         System.out.println("Client removed successfully!");
     }
+
+    private static void borrowItem() {
+        try {
+            System.out.print("Enter client ID: ");
+            int clientId = scanner.nextInt();
+            System.out.print("Enter item ID: ");
+            int itemId = scanner.nextInt();
+    
+            LibraryItem item = library.read(itemId);
+            clientManager.borrowItem(clientId, item);
+            System.out.println("Item borrowed successfully!");
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            scanner.nextLine();
+        }
+    }
+    
+    private static void returnItem() {
+        try {
+            System.out.print("Enter client ID: ");
+            int clientId = scanner.nextInt();
+            System.out.print("Enter item ID: ");
+            int itemId = scanner.nextInt();
+    
+            LibraryItem item = library.read(itemId);
+            clientManager.returnItem(clientId, item);
+            System.out.println("Item returned successfully!");
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            scanner.nextLine();
+        }
+    }
+
+    
 }
