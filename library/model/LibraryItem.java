@@ -1,33 +1,30 @@
-// library/model/LibraryItem.java
 package model;
 
 public abstract class LibraryItem {
     protected int id;
     protected String title;
-    protected int stock;
     protected boolean isAvailable;
-
-    public LibraryItem(int id, String title, int stock) {
+    
+    public LibraryItem(int id, String title) {
         this.id = id;
         this.title = title;
-        this.stock = stock;
         this.isAvailable = true;
     }
 
-    // Existing getters...
+    public int getId() {
+        return id;
+    }
 
+    public String getTitle() {
+        return title;
+    }
+    
     public boolean isAvailable() {
-        return stock > 0;
+        return isAvailable;
     }
-
-    public void decreaseStock() {
-        if (stock > 0) {
-            stock--;
-        }
-    }
-
-    public void increaseStock() {
-        stock++;
+    
+    public void setAvailable(boolean available) {
+        this.isAvailable = available;
     }
 
     public abstract String getItemDetails();

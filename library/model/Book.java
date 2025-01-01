@@ -12,7 +12,7 @@ public class Book extends LibraryItem {
 
     @Override
     public String getItemDetails() {
-        return String.format("Book [ID: %d, Title: %s, Author: %s, ISBN: %s]",
-                id, title, author, isbn);
+        return String.format("Book [ID: %d, Title: %s, Author: %s, ISBN: %s, Available: %s]",
+                id, title, author, isbn, isAvailable);
     }
 }

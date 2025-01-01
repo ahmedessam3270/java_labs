@@ -12,7 +12,7 @@ public class Magazine extends LibraryItem {
 
     @Override
     public String getItemDetails() {
-        return String.format("Magazine [ID: %d, Title: %s, Publisher: %s, Issue: %d]",
-                id, title, publisher, issue);
+        return String.format("Magazine [ID: %d, Title: %s, Publisher: %s, Issue: %d, Available: %s]",
+                id, title, publisher, issue, isAvailable);
     }
 }
